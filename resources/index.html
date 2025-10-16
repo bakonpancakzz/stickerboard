@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Stickerboard - pancakz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="bakonpancakz's Stickerboard!">
+    <link rel="stylesheet" href="/assets/index.css">
+    <link rel="icon" href="/assets/favicon.png">
+</head>
+
+<body>
+
+    <div class="layout-wrapper">
+
+        <div class="layout-canvas">
+            <div class="section-canvas">
+                <p class="chalk-highlight">loading stickers</p>
+                <img draggable="false" id="canvas" src="/assets/stickerboard.webp" alt="Latest Stickerboard" style="opacity: 0;" onload="this.style.opacity=1">
+                <img draggable="false" id="preview">
+            </div>
+            <div class="section-make-row">
+                <p class="chalk-primary">An AI will be monitoring your behaviour today ◑﹏◐</p>
+            </div>
+            <div class="section-make-row">
+                <a target="_blank" href="https://piapro.net/intl/en.html">
+                    <img alt="Mikufan Button" src="/assets/button_mikufan.png">
+                </a>
+            </div>
+        </div>
+
+        <div class="layout-create">
+            <button id="pane-swap">Create Sticker</button>
+
+            <div class="layout-pane pane-stickers">
+                {{ range . }}
+                {{ if .Visible}}
+                <div class="section-post" data-offsetx="{{ .OffsetX }}" data-offsety="{{ .OffsetY }}" data-scale="{{ .ImageScale }}" data-height="{{ .ImageHeight }}" data-width="{{ .ImageWidth}}">
+                    {{ if .UserName }}
+                    <a class="text-header" href="{{ .UserURL }}" title="Visit '{{ .UserURL }}'" target="_blank">{{ .UserName }}</a>
+                    {{ else }}
+                    <p class="text-header">Anonymous</p>
+                    {{ end }}
+                    <p class="text-hint">{{ .Created.Format "Jan 02 2006 - 3:04 PM" }}</p>
+                    <p class="text-description">{{ .Message }}</p>
+                </div>
+                {{ end }}
+                {{ end }}
+            </div>
+
+            <div class="layout-pane pane-uploader" hidden>
+                <div class="form-section">
+                    <p class="text-header">Sticker</p>
+                    <p class="text-description">
+                        Select the image you wish to share.
+                        It must be in either <u>GIF</u>, <u>JPEG</u>, or <u>PNG</u> format,
+                        up to 16 Megabytes in size, and up to 2048 pixels in dimensions.
+                    </p>
+                    <input id="form-file" type="file" accept=".gif,.jpg,.jpeg,.png,.webp" hidden>
+                    <button onclick="document.querySelector('#form-file').click()">
+                        Select File
+                    </button>
+                </div>
+
+                <div class="form-section">
+                    <p class="text-header">Placement</p>
+                    <p class="text-description">
+                        You can position your sticker by either clicking anywhere
+                        on the <u id="canvas" style="cursor: help;">canvas</u>
+                        or by using the inputs boxes below.
+                    </p>
+                    <div class="form-unique-placement">
+                        <p>X:</p>
+                        <input id="form-x" type="number" value="0" disabled>
+                        <p>Y:</p>
+                        <input id="form-y" type="number" value="0" disabled>
+                        <p>Scale:</p>
+                        <input id="form-s" type="number" min="1" max="100" value="100" disabled>
+                    </div>
+                    <script>
+                        (() => {
+                            // Sometimes people don't know, yknow?
+                            const u = document.querySelector("u#canvas")
+                            const c = document.querySelector("img#canvas")
+                            u.onmouseleave = () => c.style.borderColor = 'var(--color-primary)'
+                            u.onmouseover = () => c.style.borderColor = 'var(--color-highlight)'
+                        })()
+                    </script>
+                </div>
+
+                <div class="form-section">
+                    <p class="text-header">Profile</p>
+                    <p class="text-description">
+                        Leave these boxes blank to remain anonymous. You can
+                        include a URL to your personal homepage or social media
+                        if you like.
+                    </p>
+                    <input id="form-username" type="text" autocomplete="off" placeholder="Username: bakonpancakz">
+                    <input id="form-userurl" type="text" autocomplete="off" placeholder="URL: https://panca.kz/">
+                </div>
+
+                <div class="form-section">
+                    <p class="text-header">Comment</p>
+                    <p class="text-description">
+                        Leave a comment for other users to see.
+                        Inappropriate comments will be censored.
+                    </p>
+                    <textarea id="form-comment" maxlength="1000" placeholder="Hello World!"></textarea>
+                    <script>
+                            (() => {
+                                // Good for the soul :3
+                                const c = document.querySelector("textarea#form-comment")
+                                const x = [
+                                    "blah blah blah",
+                                    "sometimes i dream about cheese",
+                                    "weiner",
+                                    "mikudayo",
+                                ]
+                                c.placeholder = x[Math.floor(Math.random() * x.length)]
+                            })()
+                    </script>
+                </div>
+
+                <div class="form-section">
+                    <p id="form-error">...</p>
+                </div>
+
+                <div class="form-section" style="margin-bottom: 0;">
+                    <button id="form-submit">Post</button>
+                </div>
+            </div>
+
+            <div class="section-make-row">
+                <a class="chalk-highlight" href="https://panca.kz/">Homepage</a>
+                <span class="chalk-secondary">&bull;</span>
+                <a class="chalk-highlight" href="https://git.panca.kz/bakonpancakz/tools-stickerboard">Source</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="/assets/index.js"></script>
+
+</html>

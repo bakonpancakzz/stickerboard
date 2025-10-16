@@ -1,0 +1,301 @@
+:root {
+    color-scheme: dark;
+    --color-background: black;
+    --color-text: #f0f0f0;
+    --color-gray: #a3a3a3;
+    --color-primary: #86cecb;
+    --color-secondary: #128888;
+    --color-highlight: #e12885;
+    --canvas-width: 854px;
+    --canvas-height: 480px;
+}
+
+div::-webkit-scrollbar {
+    border: 1px solid var(--color-secondary);
+    width: 4px;
+}
+
+div::-webkit-scrollbar-thumb {
+    border: 1px solid var(--color-secondary);
+    background-color: var(--color-secondary);
+}
+
+body {
+    background-color: var(--color-background);
+    margin: 64px 0 0 0;
+    padding: 0;
+}
+
+textarea,
+button,
+input,
+p,
+a {
+    color: var(--color-text);
+    font-family: monospace;
+    padding: 0;
+    margin: 0;
+}
+
+.chalk-primary {
+    color: var(--color-primary);
+}
+
+.chalk-secondary {
+    color: var(--color-secondary);
+}
+
+.chalk-highlight {
+    color: var(--color-highlight);
+}
+
+.chalk-gray {
+    color: var(--color-gray);
+}
+
+.text-header {
+    font-size: x-large;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.text-hint {
+    color: var(--color-gray);
+    font-size: small;
+}
+
+.text-description {
+    color: var(--color-secondary);
+    margin-bottom: 4px;
+}
+
+.text-description u {
+    color: var(--color-highlight);
+}
+
+/* Site Layout - Canvas */
+div.layout-wrapper {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+}
+
+div.layout-canvas {
+    display: grid;
+    gap: 8px;
+}
+
+div.section-canvas {
+    min-width: var(--canvas-width);
+    max-width: var(--canvas-width);
+    min-height: var(--canvas-height);
+    max-height: var(--canvas-height);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid var(--color-primary);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+div.section-canvas img#preview {
+    border: 1px solid var(--color-highlight);
+    box-sizing: border-box;
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+div.section-canvas>* {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+div.section-make-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Site Layout - Panes */
+div.layout-create {
+    min-height: var(--canvas-height);
+    max-height: var(--canvas-height);
+    min-width: 300px;
+    max-width: 300px;
+    display: grid;
+    gap: 8px;
+}
+
+button#pane-swap {
+    border: 1px solid var(--color-primary);
+    box-sizing: border-box;
+    border-radius: 0;
+    background: none;
+    cursor: pointer;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 32px;
+    max-height: 32px;
+}
+
+button#pane-swap:active,
+button#pane-swap:focus-visible {
+    background-color: var(--color-primary);
+    outline: none;
+}
+
+div.layout-pane {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: calc(var(--canvas-height) - 30px);
+    max-height: calc(var(--canvas-height) - 30px);
+    padding: 8px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+div.form-section {
+    min-width: 100%;
+    max-width: 100%;
+    overflow: auto;
+    display: grid;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+/* Site Layout - Pane Posts */
+div.section-post:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+div.section-post {
+    display: grid;
+    gap: 4px;
+}
+
+div.section-post>a[href] {
+    text-decoration: none;
+}
+
+div.section-post>a[href]:hover {
+    text-decoration: underline;
+}
+
+div.section-post>a[href=""] {
+    pointer-events: none;
+}
+
+
+/* Site Layout - Pane Upload */
+div.form-section>button {
+    border: 1px solid var(--color-primary);
+    box-sizing: border-box;
+    border-radius: 0;
+    background: none;
+    cursor: pointer;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 24px;
+    max-height: 24px;
+    border-color: var(--color-secondary);
+}
+
+div.form-section>button:active,
+div.form-section>button:focus-visible {
+    background-color: var(--color-secondary);
+    outline: none;
+}
+
+div.form-section>input {
+    padding: 0 4px;
+    border: 1px solid var(--color-primary);
+    box-sizing: border-box;
+    border-radius: 0;
+    background: none;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 24px;
+    max-height: 24px;
+    border-color: var(--color-secondary);
+}
+
+div.form-section>input:focus-visible {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+div.form-section>input::placeholder {
+    color: var(--color-gray);
+}
+
+div.form-section>textarea {
+    padding: 4px;
+    border: 1px solid var(--color-secondary);
+    box-sizing: border-box;
+    border-radius: 0;
+    background: none;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 72px;
+    border-color: var(--color-secondary);
+}
+
+div.form-section>textarea:focus-visible {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+div.form-section>textarea::placeholder {
+    color: var(--color-gray);
+}
+
+div.form-unique-placement {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+div.form-unique-placement>p {
+    color: var(--color-secondary);
+}
+
+div.form-unique-placement>input {
+    padding: 0 4px;
+    border-radius: 0;
+    background: none;
+    border: 1px solid var(--color-secondary);
+    box-sizing: border-box;
+    background: none;
+    min-height: 24px;
+    max-height: 24px;
+    width: 100%;
+    outline: none;
+}
+
+div.form-unique-placement>input:disabled {
+    color: var(--color-gray);
+    cursor: not-allowed;
+}
+
+div.form-unique-placement>input:not(:disabled):focus-visible,
+div.form-unique-placement>input:not(:disabled):active {
+    border-color: var(--color-highlight);
+}
+
+div.form-section>p#form-error {
+    color: var(--color-highlight);
+    text-align: center;
+    font-size: large;
+}
+
+div.form-section>button#form-submit {
+    min-height: 32px;
+    max-height: 32px;
+}
