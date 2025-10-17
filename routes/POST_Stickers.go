@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"bakonpancakz/tools-stickerboard/env"
+	"bakonpancakz/stickerboard/env"
 	"bytes"
 	"crypto/sha1"
 	"encoding/json"

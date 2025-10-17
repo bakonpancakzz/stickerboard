@@ -10,8 +10,8 @@ import (
 	"syscall"
 	"time"
 
-	"bakonpancakz/tools-stickerboard/env"
-	"bakonpancakz/tools-stickerboard/routes"
+	"bakonpancakz/stickerboard/env"
+	"bakonpancakz/stickerboard/routes"
 
 	_ "github.com/joho/godotenv/autoload"
 )

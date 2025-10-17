@@ -9,7 +9,7 @@ import (
 	"path"
 	"time"
 
-	"bakonpancakz/tools-stickerboard/env"
+	"bakonpancakz/stickerboard/env"
 )
 
 var pathPublic = path.Join("resources", "public")

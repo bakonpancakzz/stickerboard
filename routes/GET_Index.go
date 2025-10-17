@@ -6,7 +6,7 @@ import (
 	"html/template"
 	"net/http"
 
-	"bakonpancakz/tools-stickerboard/env"
+	"bakonpancakz/stickerboard/env"
 )
 
 func GET_Index(w http.ResponseWriter, r *http.Request) {

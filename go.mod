@@ -1,4 +1,4 @@
-module bakonpancakz/tools-stickerboard
+module bakonpancakz/stickerboard
 
 go 1.23.4
 
