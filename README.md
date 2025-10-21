@@ -15,11 +15,13 @@ Contribute to the efforts [here](https://stickers.panca.kz)!
 - Awesome Sauce Hatsune Miku Themed Website
 
 ## ⚙️ Configuration
-This application requires that [CGO](https://go.dev/wiki/cgo) and [Tensorflow](https://www.tensorflow.org/install/lang_c) be installed and setup on your machine.
+This application requires that [CGO](https://go.dev/wiki/cgo), [FFMPEG](https://www.ffmpeg.org/) and 
+[Tensorflow](https://www.tensorflow.org/install/lang_c) be installed and setup on your machine.
 
 > Additionally you must include the `resources` folder with the **executable**.
 
-You can set these using environment variables or a `.env` file in the working directory. Required Variables are marked with an asterisk `*`.
+You can set these using environment variables or a `.env` file in the working directory. 
+Required Variables are marked with an asterisk `*`.
 
 | Environment Variable | Default          | Description                                                           |
 | -------------------- | ---------------- | --------------------------------------------------------------------- |
