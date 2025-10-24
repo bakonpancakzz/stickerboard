@@ -4,7 +4,7 @@ A program that allows trolls to paste inappropriate stickers on my [Gitea Profil
 Contribute to the efforts [here](https://stickers.panca.kz)!
 
 <p align="center">
-    <img src=".documents/preview.png" height=320>
+    <img src=".github/preview.png" height=320>
     <h6 align="center">some basic css edits will get you far</h6>
 </p>
 
