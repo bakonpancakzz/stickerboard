@@ -19,7 +19,7 @@ ENV CGO_ENABLED=1 \
     CGO_CFLAGS="-I/usr/local/include" \
     CGO_LDFLAGS="-L/usr/local/lib -ltensorflow"
 
-RUN go build -o main.elf main.go
+RUN go build -o stickerboard.elf main.go
 
 # --- Runtime ---
 
@@ -35,7 +35,7 @@ RUN rm -rf /var/lib/apt/lists/*
 # Copy Application
 COPY --from=build /usr/local/lib /usr/local/lib
 COPY --from=build /app/resources ./resources
-COPY --from=build /app/main.elf .
+COPY --from=build /app/stickerboard.elf .
 
 # Update Environment
 ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
@@ -45,5 +45,5 @@ ENV DATA_DIRECTORY=/data
 
 # Start Application
 EXPOSE 8080
-CMD ["./main.elf"]
+CMD ["./stickerboard.elf"]
 
