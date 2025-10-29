@@ -1,6 +1,6 @@
 # 🍡 `stickerboard`
 
-A program that allows trolls to paste inappropriate stickers on my [Gitea Profile](https://git.panca.kz/bakonpancakz).
+A program that allows trolls to paste inappropriate stickers on my Profile.
 Contribute to the efforts [here](https://stickers.panca.kz)!
 
 <p align="center">
